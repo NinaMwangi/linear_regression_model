@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from joblib import load
-import pandas as pd
 from pydantic import BaseModel
 
 class PredictionBody(BaseModel):
