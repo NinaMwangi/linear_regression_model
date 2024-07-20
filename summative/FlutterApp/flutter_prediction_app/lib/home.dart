@@ -17,7 +17,7 @@ class _PredictionPageState extends State<PredictionPage> {
   String predictionResult = '';
 
   Future<void> predict() async {
-    String apiUrl = 'http://127.0.0.1:8000';
+    String apiUrl = '127.0.0.1:8000';
     String predictEndpoint = '/predict';
 
     Map<String, dynamic> requestBody = {
@@ -28,7 +28,7 @@ class _PredictionPageState extends State<PredictionPage> {
 
     try {
       var response = await http.post(
-        Uri.parse(apiUrl + predictEndpoint),
+        Uri.http(apiUrl, predictEndpoint),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(requestBody),
       );
