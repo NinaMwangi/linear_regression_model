@@ -36,3 +36,14 @@ Provide a publicly available API endpoint that returns predictions given input v
 A video demo of at most 2 minutes of the mobile app doing prediction cameras on.
 Note: Use a publicly routable URL, not localhost
 You can add your files inside the path of the repo:
+
+##API
+The API post end point gets input from the user with input for the playlist count field,playlist reach and shazam counts.
+The lr model uses the input and predicts the number of streams the song can get.
+
+predict end point -'/predict'
+apiurl - 'linear-regression-model-gzzv.onrender.com'
+
+JSON input = { "PlaylistCount": 100, "PlaylistReach": 50, "ShazamCounts": 20 }
+## Host link
+ https://linear-regression-model-gzzv.onrender.com
