@@ -53,32 +53,63 @@ class _PredictionPageState extends State<PredictionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Music Streams Predictor'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(Icons.audiotrack),
+            SizedBox(width: 10,),
+            Text(
+              'Music Streams Predictor',
+              style: TextStyle(color: Colors.white)
+              ),
+          ],
+        ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(32.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: playlistCountController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Playlist Count'),
+              decoration: const InputDecoration(
+                labelText: 'Playlist Count',
+                border: OutlineInputBorder()
+              ),
             ),
+            const SizedBox(height: 24,),
             TextField(
               controller: playlistReachController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Playlist Reach'),
+              decoration: const InputDecoration(
+                labelText: 'Playlist Reach',
+                border: OutlineInputBorder()
+              ),
             ),
+            const SizedBox(height: 24,),
             TextField(
               controller: shazamCountsController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Shazam Counts'),
+              decoration: const InputDecoration(
+                labelText: 'Shazam Counts',
+                border: OutlineInputBorder()
+              ),
             ),
             const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: predict,
-              child: const Text('Predict'),
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(10.0),),
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                fixedSize: Size(MediaQuery.of(context).size.width - 20, 47),
+                //textStyle: const TextStyle(fontWeight: FontWeight.bold)
+              ), 
+              child: const Text(
+                'Predict',
+                style: TextStyle(color: Colors.white)),
             ),
             const SizedBox(height: 20.0),
             Text(
